@@ -94,12 +94,12 @@ while ($row = mysqli_fetch_assoc($following)) {
                             <button class="btn btn-primary" type="submit">Update</button>
                         </div>
                         </form>
-                        <div class="d-grid gap-2">
-                            <form action="deleteProfile.php" method="POST">
+                        <form action="deleteProfile.php" method="POST">
+                        <div class="d-grid">
                                 <input type="hidden" name="id" value="<?php $arr['id'] ?>"/>
                                 <button class="btn btn-danger" type="submit">Delete Profile</button>
-                            </form>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>

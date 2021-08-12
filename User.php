@@ -61,6 +61,17 @@ class User {
 
     }
 
+    public function deleteUser($id) {
+        $db_found = new mysqli('localhost', 'studentdb', 'secret123', 'Users', 3306);
+        $SQL = $db_found->prepare("DELETE FROM users WHERE id = ?");
+
+        $SQL->bind_param('i', $id);
+
+        $SQL->execute();
+
+        $SQL->close();
+    }
+
     public function getUserByName($name) {
         require_once('mysqli_connect.php');
         $query = "SELECT * FROM users WHERE name = $name";

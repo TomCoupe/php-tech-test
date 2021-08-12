@@ -15,7 +15,7 @@ while ($row = mysqli_fetch_assoc($user)) {
     $arr = [
     'name' => $row['name'], 'email' => $row['email'],
     'phone' => $row['phoneNumber'], 'dateOfBirth' => $row['dateOfBirth'],
-    'bio' => $row['bio'], 'path' => $row['pfpPath']
+    'bio' => $row['bio'], 'path' => $row['pfpPath'], 'id' => $row['id']
     ];
 }
 $followArr = [];
@@ -24,6 +24,8 @@ while ($row = mysqli_fetch_assoc($following)) {
     'following' => $row['following'],
     ];
 }
+
+
 // $userobj = new User($arr['name'], $arr['email'], $arr['phoneNumber'], $arr['dateOfBirth'], $arr['bio'], $arr['path']);
 ?>
 
@@ -90,11 +92,14 @@ while ($row = mysqli_fetch_assoc($following)) {
 
                         <div class="d-grid gap-2">
                             <button class="btn btn-primary" type="submit">Update</button>
-                       
-                            <button class="btn btn-danger" type="submit">Delete Profile</button>
                         </div>
-                        
                         </form>
+                        <div class="d-grid gap-2">
+                            <form action="deleteProfile.php" method="POST">
+                                <input type="hidden" name="id" value="<?php $arr['id'] ?>"/>
+                                <button class="btn btn-danger" type="submit">Delete Profile</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

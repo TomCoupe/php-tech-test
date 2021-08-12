@@ -20,7 +20,7 @@ while ($row = mysqli_fetch_assoc($user)) {
 }
 $followArr = [];
 while ($row = mysqli_fetch_assoc($following)) {
-    $followArr = [
+    $followArr[] = [
     'following' => $row['following'],
     ];
 }
@@ -66,8 +66,8 @@ while ($row = mysqli_fetch_assoc($following)) {
                         <div class="card-body">
                         <ul>
                             <?php
-                            foreach ($followArr as $follow => $value) {
-                                echo "<li>" .$value. "</li>";
+                            foreach ($followArr as $follow) {
+                                echo "<li><a href='index.php'>" .$follow['following']. "</a></li>";
                             }
                             ?>
                         </ul>
